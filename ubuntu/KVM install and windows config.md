@@ -47,3 +47,5 @@ NIC active choose no if don't want network
 windows install WinFSP
 ![[Pasted image 20260521182124.png]]
 ![[Pasted image 20260521182223.png]]
+## office and active
+[Office 2021正式中文版，附镜像下载+永久激活 - 帅胡 - 博客园](https://www.cnblogs.com/hushaojun/p/15967885.html)
