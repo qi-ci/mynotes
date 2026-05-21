@@ -1,3 +1,8 @@
+## Obsidian
+```
+flatpak install flathub md.obsidian.Obsidian
+flatpak run md.obsidian.Obsidian
+```
 ## 配置git用户信息
 ```
 sudo apt install git
@@ -43,7 +48,27 @@ acorus@ubuntu:/data/info/notes$ git commit -m "initial commit"
 acorus@ubuntu:/data/info/notes$ git push
 ```
 ## MkDocs
+```
+acorus@ubuntu:/data/info/notes$ python3 -m venv .venv
+acorus@ubuntu:/data/info/notes$ source .venv/bin/activate
+(.venv) acorus@ubuntu:/data/info/notes$ pip install mkdocs mkdocs-material mkdocs-literate-nav
 
+#Obsidian + MkDocs自动同步结构
+(.venv) acorus@ubuntu:/data/info/notes$ pip install mkdocs-awesome-nav
+(.venv) acorus@ubuntu:/data/info/notes$ nano mkdocs.yml 
+
+site_name: My Notes
+
+theme:
+  name: material
+
+plugins:
+  - search
+  - awesome-nav
+
+
+
+```
 
 
 

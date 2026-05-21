@@ -3,6 +3,6 @@ site_name: My Notes
 theme:
   name: material
 
-nav:
-  - Home: index.md
-  - ubuntu: ubuntu/
+plugins:
+  - search
+  - awesome-nav
