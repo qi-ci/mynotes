@@ -74,6 +74,7 @@ plugins:
 ![](assets/images/Pasted%20image%2020260521212408.png)
 ## 部署到github pages
 ```
+(.venv) acorus@ubuntu:/data/info/notes$ echo ".site/" >> .gitignore 
 (.venv) acorus@ubuntu:/data/info/notes$ mkdocs gh-deploy
 ```
 ![](assets/images/Pasted%20image%2020260521220506.png)
