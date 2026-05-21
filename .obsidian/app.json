@@ -1,6 +1,8 @@
 {
-  "useMarkdownLinks": false,
+  "useMarkdownLinks": true,
   "newFileLocation": "root",
   "newFileFolderPath": "",
-  "attachmentFolderPath": "./assets/images"
+  "attachmentFolderPath": "./assets/images",
+  "newLinkFormat": "relative",
+  "alwaysUpdateLinks": true
 }
