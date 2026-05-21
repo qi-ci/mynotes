@@ -1,4 +1,4 @@
-## 配置用户信息
+## 配置git用户信息
 ```
 sudo apt install git
 
@@ -42,6 +42,7 @@ acorus@ubuntu:/data/info/notes$ git commit -m "initial commit"
 #上传
 acorus@ubuntu:/data/info/notes$ git push
 ```
+## MkDocs
 
 
 
