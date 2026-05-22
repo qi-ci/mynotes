@@ -74,10 +74,10 @@ plugins:
 ```
 
 ## Obsidian图片路径设置
-![](../assets/images/Pasted%20image%2020260522165422.png)
+![](../assets/images/Pasted%20image%2020260522175412.png)
 ## 部署到github pages
 ```
 (.venv) acorus@ubuntu:/data/info/notes$ echo ".site/" >> .gitignore 
 (.venv) acorus@ubuntu:/data/info/notes$ mkdocs gh-deploy
 ```
-![](../assets/Pasted%20image%2020260521220506.png)
+![](../assets/images/Pasted%20image%2020260521220506.png)
