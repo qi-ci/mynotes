@@ -1,8 +1,9 @@
 {
   "useMarkdownLinks": true,
-  "newFileLocation": "root",
-  "newFileFolderPath": "",
-  "attachmentFolderPath": "./assets/images",
+  "newFileLocation": "folder",
+  "newFileFolderPath": "docs",
+  "attachmentFolderPath": "docs/assets/images",
   "newLinkFormat": "relative",
-  "alwaysUpdateLinks": true
+  "alwaysUpdateLinks": true,
+  "openBehavior": ""
 }

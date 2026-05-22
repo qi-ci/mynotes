@@ -1,3 +1,6 @@
+## refrences
+[下载与安装 - Obsidian 中文帮助](https://obsidian.md/zh/help/install)
+
 ## Obsidian
 ```
 flatpak install flathub md.obsidian.Obsidian
@@ -71,10 +74,10 @@ plugins:
 ```
 
 ## Obsidian图片路径设置
-![](assets/images/Pasted%20image%2020260521212408.png)
+![](../assets/images/Pasted%20image%2020260522165422.png)
 ## 部署到github pages
 ```
 (.venv) acorus@ubuntu:/data/info/notes$ echo ".site/" >> .gitignore 
 (.venv) acorus@ubuntu:/data/info/notes$ mkdocs gh-deploy
 ```
-![](assets/images/Pasted%20image%2020260521220506.png)
+![](../assets/Pasted%20image%2020260521220506.png)
