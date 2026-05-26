@@ -1,3 +1,5 @@
-.obsidian/workspace*
 .trash/
-.site/
+site/
+.venv/
+__pycache__/
+*.pyc

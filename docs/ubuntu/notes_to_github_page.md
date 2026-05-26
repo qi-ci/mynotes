@@ -19,6 +19,7 @@ acorus@ubuntu:~$ ssh -T git@github.com
 Hi qi-ci! You've successfully authenticated, but GitHub does not provide shell access.
 
 #绑定GitHub仓库
+#修改仓库 git remote set-url origin <新的仓库地址>
 acorus@ubuntu:/data/info/notes$ git remote add origin git@github.com:qi-ci/mynotes
 
 acorus@ubuntu:/data/info/notes$ git config list
@@ -77,7 +78,7 @@ plugins:
 ![](../assets/images/Pasted%20image%2020260522175412.png)
 ## 部署到github pages
 ```
-(.venv) acorus@ubuntu:/data/info/notes$ echo ".site/" >> .gitignore 
+(.venv) acorus@ubuntu:/data/info/notes$ echo "site/" >> .gitignore 
 (.venv) acorus@ubuntu:/data/info/notes$ mkdocs gh-deploy
 ```
 ![](../assets/images/Pasted%20image%2020260521220506.png)
