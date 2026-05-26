@@ -670,6 +670,7 @@ acorus@ubuntu:~$ ssh -T git@github.com
 Hi qi-ci! You've successfully authenticated, but GitHub does not provide shell access.
 
 #绑定GitHub仓库
+#修改仓库 git remote set-url origin &lt;新的仓库地址&gt;
 acorus@ubuntu:/data/info/notes$ git remote add origin git@github.com:qi-ci/mynotes
 
 acorus@ubuntu:/data/info/notes$ git config list
@@ -724,7 +725,7 @@ plugins:
 <h2 id="obsidian_1">Obsidian图片路径设置</h2>
 <p><img alt="" src="../../assets/images/Pasted%20image%2020260522175412.png" /></p>
 <h2 id="github-pages">部署到github pages</h2>
-<pre><code>(.venv) acorus@ubuntu:/data/info/notes$ echo &quot;.site/&quot; &gt;&gt; .gitignore 
+<pre><code>(.venv) acorus@ubuntu:/data/info/notes$ echo &quot;site/&quot; &gt;&gt; .gitignore 
 (.venv) acorus@ubuntu:/data/info/notes$ mkdocs gh-deploy
 </code></pre>
 <p><img alt="" src="../../assets/images/Pasted%20image%2020260521220506.png" /></p>
