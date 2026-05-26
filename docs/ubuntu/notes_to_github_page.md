@@ -82,3 +82,8 @@ plugins:
 (.venv) acorus@ubuntu:/data/info/notes$ mkdocs gh-deploy
 ```
 ![](../assets/images/Pasted%20image%2020260521220506.png)
+## pages页面不刷新
+```
+git push origin --delete gh-pages
+mkdocs gh-deploy --clean --force
+```
