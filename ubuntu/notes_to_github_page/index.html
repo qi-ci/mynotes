@@ -432,6 +432,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        pages页面不刷新
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -633,6 +644,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        pages页面不刷新
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -729,6 +751,10 @@ plugins:
 (.venv) acorus@ubuntu:/data/info/notes$ mkdocs gh-deploy
 </code></pre>
 <p><img alt="" src="../../assets/images/Pasted%20image%2020260521220506.png" /></p>
+<h2 id="pages">pages页面不刷新</h2>
+<pre><code>git push origin --delete gh-pages
+mkdocs gh-deploy --clean --force
+</code></pre>
 
 
 
