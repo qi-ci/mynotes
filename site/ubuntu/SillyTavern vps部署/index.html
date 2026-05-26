@@ -1,0 +1,749 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../notes-to-github-page/">
+      
+      
+        <link rel="next" href="../v2raya/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>SillyTavern vps部署 - My Notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#docker" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="My Notes" class="md-header__button md-logo" aria-label="My Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            My Notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              SillyTavern vps部署
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="My Notes" class="md-nav__button md-logo" aria-label="My Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    My Notes
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Welcome to MkDocs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ubuntu
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ubuntu
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../KVM-install-and-windows-config/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    KVM install and windows config
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notes-to-github-page/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Notes to github page
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SillyTavern vps部署
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SillyTavern vps部署
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        docker
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        下载酒馆
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1panel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        安装1Panel
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1panel_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1Panel中部署酒馆
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#node" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        重启Node服务
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        备份酒馆数据
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        API反代
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../v2raya/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    V2raya
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        docker
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        下载酒馆
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1panel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        安装1Panel
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1panel_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1Panel中部署酒馆
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#node" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        重启Node服务
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        备份酒馆数据
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        API反代
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>SillyTavern vps部署</h1>
+
+<h2 id="docker">docker</h2>
+<pre><code># [https://docs.docker.com/engine/install/ubuntu/]
+# Add Docker's official GPG key:
+sudo apt update
+sudo apt install ca-certificates curl
+sudo install -m 0755 -d /etc/apt/keyrings
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+sudo chmod a+r /etc/apt/keyrings/docker.asc
+
+# Add the repository to Apt sources:
+sudo tee /etc/apt/sources.list.d/docker.sources &lt;&lt;EOF
+Types: deb
+URIs: https://download.docker.com/linux/ubuntu
+Suites: $(. /etc/os-release &amp;&amp; echo &quot;${UBUNTU_CODENAME:-$VERSION_CODENAME}&quot;)
+Components: stable
+Architectures: $(dpkg --print-architecture)
+Signed-By: /etc/apt/keyrings/docker.asc
+EOF
+
+sudo apt update
+sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
+sudo systemctl status docker
+sudo systemctl start docker
+
+</code></pre>
+<p><img alt="" src="https://onenote.officeapps.live.com/o/GetImage.ashx?&amp;WOPIsrc=https%3A%2F%2Fmy%2Emicrosoftpersonalcontent%2Ecom%2Fpersonal%2Fec9fb4e16b8ab025%2F%5Fvti%5Fbin%2Fwopi%2Eashx%2Ffiles%2FEC9FB4E16B8AB025%213159&amp;access_token=eyJhbGciOiJSUzI1NiIsImtpZCI6IkMxMDU5RTM1MkYyOUY5QUJCNzg4MjRBNkQ4MTQ5RDI2NDFDQzc5QjgiLCJ0eXAiOiJKV1QiLCJ4NXQiOiJ3UVdlTlM4cC1hdTNpQ1NtMkJTZEprSE1lYmcifQ%2EeyJuYW1laWQiOiIwIy5mfG1lbWJlcnNoaXB8cXZtdWZlbmdAb3V0bG9vay5jb20iLCJuaWkiOiJtaWNyb3NvZnQuc2hhcmVwb2ludCIsImlzdXNlciI6InRydWUiLCJjYWNoZWtleSI6IjBoLmZ8bWVtYmVyc2hpcHwwMDAzNDAwMTAyYmZiMjAxQGxpdmUuY29tIiwic2hhcmluZ2lkIjoiMzEzMDkxMzY4Njc0NjI1NTY5OCIsInNpZCI6IldBQ18zMTMwOTEzNjg2NzQ2MjU1Njk4IiwiaXNsb29wYmFjayI6IlRydWUiLCJhcHBjdHgiOiI2YjhhYjAyNWI0ZTEyMDlmODBlYzU3MGMwMDAwMDAwMDtzVm1uTE5ZRFZ3Z25sK25RdWRBcER5V28yR2M9O0RlZmF1bHQ7OzFCMDNDNDMxMkVGO1RydWU7OzsxMzMxMDEyOzE3MTIxNmEyLWIwZDctMTAwMC05ZmY2LTRjMDA3MTEwMjdhNiIsImZpZCI6IjIwMTU0MSIsImlzcyI6IjAwMDAwMDAzLTAwMDAtMGZmMS1jZTAwLTAwMDAwMDAwMDAwMEA5MDE0MDEyMi04NTE2LTExZTEtOGVmZi00OTMwNDkyNDAxOWIiLCJhdWQiOiJ3b3BpL215Lm1pY3Jvc29mdHBlcnNvbmFsY29udGVudC5jb21AOTE4ODA0MGQtNmM2Ny00YzViLWIxMTItMzZhMzA0YjY2ZGFkIiwibmJmIjoiMTc3OTQ0MTExNiIsImV4cCI6IjE3Nzk4Njk1MTYifQ%2EYMVn7SU0Vmu4YzifjPVAA4NUF%2DGrVYeivwz6r0qzHkpZVRtSgHm7oKD3wwgnVvmVKgfgrlyzHtalY29%2D4k2VFNsL5VOsmGvslCusscmrT3vpk7djBTS%5F9o717fn7JSyTPfxsKOYAys0OWq81D%2Dq7aTfNsTZClrfx5JWZJ18ROEiOgbLdqgbJE5yKsqedPsqIa6Ey2iq1yTjFdvPpXJI%5F6gz3JfStnv88yfh6gzAlMzJhyyUfanQld2ryDwV%5Fs9%5FafVkZU4cW7iuycpc%2Dtk4RLhDvxHi8jGewCNvV22EVWGf2%2DRcyMxEHvLDWVXvYYU%5FcIUvA9D6nnwLhHhA6H%5FaYIA&amp;access_token_ttl=1779869516714&amp;ObjectDataBlobId=%7Bb5971b88-32a9-06d3-2fa5-05ff3e14fc78%7D%7B1%7D&amp;usid=fae2c5b9-bde5-86f4-df93-c9931e09ecd6&amp;build=16.0.20111.41014&amp;waccluster=PCA1&amp;wdwacuseragent=MSWACONSync" /></p>
+<h2 id="_1">下载酒馆</h2>
+<pre><code>git clone https://github.com/SillyTavern/SillyTavern.git -b release
+</code></pre>
+<p><img alt="" src="https://onenote.officeapps.live.com/o/GetImage.ashx?&amp;WOPIsrc=https%3A%2F%2Fmy%2Emicrosoftpersonalcontent%2Ecom%2Fpersonal%2Fec9fb4e16b8ab025%2F%5Fvti%5Fbin%2Fwopi%2Eashx%2Ffiles%2FEC9FB4E16B8AB025%213159&amp;access_token=eyJhbGciOiJSUzI1NiIsImtpZCI6IkMxMDU5RTM1MkYyOUY5QUJCNzg4MjRBNkQ4MTQ5RDI2NDFDQzc5QjgiLCJ0eXAiOiJKV1QiLCJ4NXQiOiJ3UVdlTlM4cC1hdTNpQ1NtMkJTZEprSE1lYmcifQ%2EeyJuYW1laWQiOiIwIy5mfG1lbWJlcnNoaXB8cXZtdWZlbmdAb3V0bG9vay5jb20iLCJuaWkiOiJtaWNyb3NvZnQuc2hhcmVwb2ludCIsImlzdXNlciI6InRydWUiLCJjYWNoZWtleSI6IjBoLmZ8bWVtYmVyc2hpcHwwMDAzNDAwMTAyYmZiMjAxQGxpdmUuY29tIiwic2hhcmluZ2lkIjoiMzEzMDkxMzY4Njc0NjI1NTY5OCIsInNpZCI6IldBQ18zMTMwOTEzNjg2NzQ2MjU1Njk4IiwiaXNsb29wYmFjayI6IlRydWUiLCJhcHBjdHgiOiI2YjhhYjAyNWI0ZTEyMDlmODBlYzU3MGMwMDAwMDAwMDtzVm1uTE5ZRFZ3Z25sK25RdWRBcER5V28yR2M9O0RlZmF1bHQ7OzFCMDNDNDMxMkVGO1RydWU7OzsxMzMxMDEyOzE3MTIxNmEyLWIwZDctMTAwMC05ZmY2LTRjMDA3MTEwMjdhNiIsImZpZCI6IjIwMTU0MSIsImlzcyI6IjAwMDAwMDAzLTAwMDAtMGZmMS1jZTAwLTAwMDAwMDAwMDAwMEA5MDE0MDEyMi04NTE2LTExZTEtOGVmZi00OTMwNDkyNDAxOWIiLCJhdWQiOiJ3b3BpL215Lm1pY3Jvc29mdHBlcnNvbmFsY29udGVudC5jb21AOTE4ODA0MGQtNmM2Ny00YzViLWIxMTItMzZhMzA0YjY2ZGFkIiwibmJmIjoiMTc3OTQ0MTExNiIsImV4cCI6IjE3Nzk4Njk1MTYifQ%2EYMVn7SU0Vmu4YzifjPVAA4NUF%2DGrVYeivwz6r0qzHkpZVRtSgHm7oKD3wwgnVvmVKgfgrlyzHtalY29%2D4k2VFNsL5VOsmGvslCusscmrT3vpk7djBTS%5F9o717fn7JSyTPfxsKOYAys0OWq81D%2Dq7aTfNsTZClrfx5JWZJ18ROEiOgbLdqgbJE5yKsqedPsqIa6Ey2iq1yTjFdvPpXJI%5F6gz3JfStnv88yfh6gzAlMzJhyyUfanQld2ryDwV%5Fs9%5FafVkZU4cW7iuycpc%2Dtk4RLhDvxHi8jGewCNvV22EVWGf2%2DRcyMxEHvLDWVXvYYU%5FcIUvA9D6nnwLhHhA6H%5FaYIA&amp;access_token_ttl=1779869516714&amp;ObjectDataBlobId=%7Ba8a3126f-2315-012c-1945-f0c7174a3622%7D%7B1%7D&amp;usid=fae2c5b9-bde5-86f4-df93-c9931e09ecd6&amp;build=16.0.20111.41014&amp;waccluster=PCA1&amp;wdwacuseragent=MSWACONSync" /></p>
+<h2 id="1panel">安装1Panel</h2>
+<pre><code>su root 
+curl -sSL https://resource.fit2cloud.com/1panel/package/quick_start.sh -o quick_start.sh &amp;&amp; bash quick_start.sh
+</code></pre>
+<h2 id="1panel_1">1Panel中部署酒馆</h2>
+<p>Node环境 </p>
+<p><img alt="" src="https://onenote.officeapps.live.com/o/GetImage.ashx?&amp;WOPIsrc=https%3A%2F%2Fmy%2Emicrosoftpersonalcontent%2Ecom%2Fpersonal%2Fec9fb4e16b8ab025%2F%5Fvti%5Fbin%2Fwopi%2Eashx%2Ffiles%2FEC9FB4E16B8AB025%213159&amp;access_token=eyJhbGciOiJSUzI1NiIsImtpZCI6IkMxMDU5RTM1MkYyOUY5QUJCNzg4MjRBNkQ4MTQ5RDI2NDFDQzc5QjgiLCJ0eXAiOiJKV1QiLCJ4NXQiOiJ3UVdlTlM4cC1hdTNpQ1NtMkJTZEprSE1lYmcifQ%2EeyJuYW1laWQiOiIwIy5mfG1lbWJlcnNoaXB8cXZtdWZlbmdAb3V0bG9vay5jb20iLCJuaWkiOiJtaWNyb3NvZnQuc2hhcmVwb2ludCIsImlzdXNlciI6InRydWUiLCJjYWNoZWtleSI6IjBoLmZ8bWVtYmVyc2hpcHwwMDAzNDAwMTAyYmZiMjAxQGxpdmUuY29tIiwic2hhcmluZ2lkIjoiMzEzMDkxMzY4Njc0NjI1NTY5OCIsInNpZCI6IldBQ18zMTMwOTEzNjg2NzQ2MjU1Njk4IiwiaXNsb29wYmFjayI6IlRydWUiLCJhcHBjdHgiOiI2YjhhYjAyNWI0ZTEyMDlmODBlYzU3MGMwMDAwMDAwMDtzVm1uTE5ZRFZ3Z25sK25RdWRBcER5V28yR2M9O0RlZmF1bHQ7OzFCMDNDNDMxMkVGO1RydWU7OzsxMzMxMDEyOzE3MTIxNmEyLWIwZDctMTAwMC05ZmY2LTRjMDA3MTEwMjdhNiIsImZpZCI6IjIwMTU0MSIsImlzcyI6IjAwMDAwMDAzLTAwMDAtMGZmMS1jZTAwLTAwMDAwMDAwMDAwMEA5MDE0MDEyMi04NTE2LTExZTEtOGVmZi00OTMwNDkyNDAxOWIiLCJhdWQiOiJ3b3BpL215Lm1pY3Jvc29mdHBlcnNvbmFsY29udGVudC5jb21AOTE4ODA0MGQtNmM2Ny00YzViLWIxMTItMzZhMzA0YjY2ZGFkIiwibmJmIjoiMTc3OTQ0MTExNiIsImV4cCI6IjE3Nzk4Njk1MTYifQ%2EYMVn7SU0Vmu4YzifjPVAA4NUF%2DGrVYeivwz6r0qzHkpZVRtSgHm7oKD3wwgnVvmVKgfgrlyzHtalY29%2D4k2VFNsL5VOsmGvslCusscmrT3vpk7djBTS%5F9o717fn7JSyTPfxsKOYAys0OWq81D%2Dq7aTfNsTZClrfx5JWZJ18ROEiOgbLdqgbJE5yKsqedPsqIa6Ey2iq1yTjFdvPpXJI%5F6gz3JfStnv88yfh6gzAlMzJhyyUfanQld2ryDwV%5Fs9%5FafVkZU4cW7iuycpc%2Dtk4RLhDvxHi8jGewCNvV22EVWGf2%2DRcyMxEHvLDWVXvYYU%5FcIUvA9D6nnwLhHhA6H%5FaYIA&amp;access_token_ttl=1779869516714&amp;ObjectDataBlobId=%7B415f3c38-a88a-0a63-253e-1bdc2a20f38f%7D%7B1%7D&amp;usid=fae2c5b9-bde5-86f4-df93-c9931e09ecd6&amp;build=16.0.20111.41014&amp;waccluster=PCA1&amp;wdwacuseragent=MSWACONSync" /></p>
+<p>改酒馆配置文件 </p>
+<blockquote>
+<p>将 <code>listen: false</code> 更改为 <code>listen: true</code>
+将 <code>whitelistMode</code>: true 更改为 <code>whitelistMode</code>: false
+将 <code>basicAuthMode</code>: false 更改为 <code>basicAuthMode</code>: true
+在 <code>basicAuthUser</code> 中，设置 <code>username(用户名)</code> 和 <code>password(密码)</code>，注意要用英文的双引号包裹</p>
+</blockquote>
+<h2 id="node">重启Node服务</h2>
+<p><img alt="" src="https://onenote.officeapps.live.com/o/GetImage.ashx?&amp;WOPIsrc=https%3A%2F%2Fmy%2Emicrosoftpersonalcontent%2Ecom%2Fpersonal%2Fec9fb4e16b8ab025%2F%5Fvti%5Fbin%2Fwopi%2Eashx%2Ffiles%2FEC9FB4E16B8AB025%213159&amp;access_token=eyJhbGciOiJSUzI1NiIsImtpZCI6IkMxMDU5RTM1MkYyOUY5QUJCNzg4MjRBNkQ4MTQ5RDI2NDFDQzc5QjgiLCJ0eXAiOiJKV1QiLCJ4NXQiOiJ3UVdlTlM4cC1hdTNpQ1NtMkJTZEprSE1lYmcifQ%2EeyJuYW1laWQiOiIwIy5mfG1lbWJlcnNoaXB8cXZtdWZlbmdAb3V0bG9vay5jb20iLCJuaWkiOiJtaWNyb3NvZnQuc2hhcmVwb2ludCIsImlzdXNlciI6InRydWUiLCJjYWNoZWtleSI6IjBoLmZ8bWVtYmVyc2hpcHwwMDAzNDAwMTAyYmZiMjAxQGxpdmUuY29tIiwic2hhcmluZ2lkIjoiMzEzMDkxMzY4Njc0NjI1NTY5OCIsInNpZCI6IldBQ18zMTMwOTEzNjg2NzQ2MjU1Njk4IiwiaXNsb29wYmFjayI6IlRydWUiLCJhcHBjdHgiOiI2YjhhYjAyNWI0ZTEyMDlmODBlYzU3MGMwMDAwMDAwMDtzVm1uTE5ZRFZ3Z25sK25RdWRBcER5V28yR2M9O0RlZmF1bHQ7OzFCMDNDNDMxMkVGO1RydWU7OzsxMzMxMDEyOzE3MTIxNmEyLWIwZDctMTAwMC05ZmY2LTRjMDA3MTEwMjdhNiIsImZpZCI6IjIwMTU0MSIsImlzcyI6IjAwMDAwMDAzLTAwMDAtMGZmMS1jZTAwLTAwMDAwMDAwMDAwMEA5MDE0MDEyMi04NTE2LTExZTEtOGVmZi00OTMwNDkyNDAxOWIiLCJhdWQiOiJ3b3BpL215Lm1pY3Jvc29mdHBlcnNvbmFsY29udGVudC5jb21AOTE4ODA0MGQtNmM2Ny00YzViLWIxMTItMzZhMzA0YjY2ZGFkIiwibmJmIjoiMTc3OTQ0MTExNiIsImV4cCI6IjE3Nzk4Njk1MTYifQ%2EYMVn7SU0Vmu4YzifjPVAA4NUF%2DGrVYeivwz6r0qzHkpZVRtSgHm7oKD3wwgnVvmVKgfgrlyzHtalY29%2D4k2VFNsL5VOsmGvslCusscmrT3vpk7djBTS%5F9o717fn7JSyTPfxsKOYAys0OWq81D%2Dq7aTfNsTZClrfx5JWZJ18ROEiOgbLdqgbJE5yKsqedPsqIa6Ey2iq1yTjFdvPpXJI%5F6gz3JfStnv88yfh6gzAlMzJhyyUfanQld2ryDwV%5Fs9%5FafVkZU4cW7iuycpc%2Dtk4RLhDvxHi8jGewCNvV22EVWGf2%2DRcyMxEHvLDWVXvYYU%5FcIUvA9D6nnwLhHhA6H%5FaYIA&amp;access_token_ttl=1779869516714&amp;ObjectDataBlobId=%7Bb94651a5-440a-0bca-29ef-d9b8a6e67f33%7D%7B1%7D&amp;usid=fae2c5b9-bde5-86f4-df93-c9931e09ecd6&amp;build=16.0.20111.41014&amp;waccluster=PCA1&amp;wdwacuseragent=MSWACONSync" /></p>
+<h2 id="_2">备份酒馆数据</h2>
+<p><a href="https://console.bitiful.com/users">https://console.bitiful.com/users</a> </p>
+<p>把minio添加到1panel 
+<img alt="" src="https://onenote.officeapps.live.com/o/GetImage.ashx?&amp;WOPIsrc=https%3A%2F%2Fmy%2Emicrosoftpersonalcontent%2Ecom%2Fpersonal%2Fec9fb4e16b8ab025%2F%5Fvti%5Fbin%2Fwopi%2Eashx%2Ffiles%2FEC9FB4E16B8AB025%213159&amp;access_token=eyJhbGciOiJSUzI1NiIsImtpZCI6IkMxMDU5RTM1MkYyOUY5QUJCNzg4MjRBNkQ4MTQ5RDI2NDFDQzc5QjgiLCJ0eXAiOiJKV1QiLCJ4NXQiOiJ3UVdlTlM4cC1hdTNpQ1NtMkJTZEprSE1lYmcifQ%2EeyJuYW1laWQiOiIwIy5mfG1lbWJlcnNoaXB8cXZtdWZlbmdAb3V0bG9vay5jb20iLCJuaWkiOiJtaWNyb3NvZnQuc2hhcmVwb2ludCIsImlzdXNlciI6InRydWUiLCJjYWNoZWtleSI6IjBoLmZ8bWVtYmVyc2hpcHwwMDAzNDAwMTAyYmZiMjAxQGxpdmUuY29tIiwic2hhcmluZ2lkIjoiMzEzMDkxMzY4Njc0NjI1NTY5OCIsInNpZCI6IldBQ18zMTMwOTEzNjg2NzQ2MjU1Njk4IiwiaXNsb29wYmFjayI6IlRydWUiLCJhcHBjdHgiOiI2YjhhYjAyNWI0ZTEyMDlmODBlYzU3MGMwMDAwMDAwMDtzVm1uTE5ZRFZ3Z25sK25RdWRBcER5V28yR2M9O0RlZmF1bHQ7OzFCMDNDNDMxMkVGO1RydWU7OzsxMzMxMDEyOzE3MTIxNmEyLWIwZDctMTAwMC05ZmY2LTRjMDA3MTEwMjdhNiIsImZpZCI6IjIwMTU0MSIsImlzcyI6IjAwMDAwMDAzLTAwMDAtMGZmMS1jZTAwLTAwMDAwMDAwMDAwMEA5MDE0MDEyMi04NTE2LTExZTEtOGVmZi00OTMwNDkyNDAxOWIiLCJhdWQiOiJ3b3BpL215Lm1pY3Jvc29mdHBlcnNvbmFsY29udGVudC5jb21AOTE4ODA0MGQtNmM2Ny00YzViLWIxMTItMzZhMzA0YjY2ZGFkIiwibmJmIjoiMTc3OTQ0MTExNiIsImV4cCI6IjE3Nzk4Njk1MTYifQ%2EYMVn7SU0Vmu4YzifjPVAA4NUF%2DGrVYeivwz6r0qzHkpZVRtSgHm7oKD3wwgnVvmVKgfgrlyzHtalY29%2D4k2VFNsL5VOsmGvslCusscmrT3vpk7djBTS%5F9o717fn7JSyTPfxsKOYAys0OWq81D%2Dq7aTfNsTZClrfx5JWZJ18ROEiOgbLdqgbJE5yKsqedPsqIa6Ey2iq1yTjFdvPpXJI%5F6gz3JfStnv88yfh6gzAlMzJhyyUfanQld2ryDwV%5Fs9%5FafVkZU4cW7iuycpc%2Dtk4RLhDvxHi8jGewCNvV22EVWGf2%2DRcyMxEHvLDWVXvYYU%5FcIUvA9D6nnwLhHhA6H%5FaYIA&amp;access_token_ttl=1779869516714&amp;ObjectDataBlobId=%7Bb77cabc1-86f8-0262-05cb-20ee948133d1%7D%7B1%7D&amp;usid=fae2c5b9-bde5-86f4-df93-c9931e09ecd6&amp;build=16.0.20111.41014&amp;waccluster=PCA1&amp;wdwacuseragent=MSWACONSync" /></p>
+<p>创建备份的计划任务 </p>
+<p><img alt="" src="https://onenote.officeapps.live.com/o/GetImage.ashx?&amp;WOPIsrc=https%3A%2F%2Fmy%2Emicrosoftpersonalcontent%2Ecom%2Fpersonal%2Fec9fb4e16b8ab025%2F%5Fvti%5Fbin%2Fwopi%2Eashx%2Ffiles%2FEC9FB4E16B8AB025%213159&amp;access_token=eyJhbGciOiJSUzI1NiIsImtpZCI6IkMxMDU5RTM1MkYyOUY5QUJCNzg4MjRBNkQ4MTQ5RDI2NDFDQzc5QjgiLCJ0eXAiOiJKV1QiLCJ4NXQiOiJ3UVdlTlM4cC1hdTNpQ1NtMkJTZEprSE1lYmcifQ%2EeyJuYW1laWQiOiIwIy5mfG1lbWJlcnNoaXB8cXZtdWZlbmdAb3V0bG9vay5jb20iLCJuaWkiOiJtaWNyb3NvZnQuc2hhcmVwb2ludCIsImlzdXNlciI6InRydWUiLCJjYWNoZWtleSI6IjBoLmZ8bWVtYmVyc2hpcHwwMDAzNDAwMTAyYmZiMjAxQGxpdmUuY29tIiwic2hhcmluZ2lkIjoiMzEzMDkxMzY4Njc0NjI1NTY5OCIsInNpZCI6IldBQ18zMTMwOTEzNjg2NzQ2MjU1Njk4IiwiaXNsb29wYmFjayI6IlRydWUiLCJhcHBjdHgiOiI2YjhhYjAyNWI0ZTEyMDlmODBlYzU3MGMwMDAwMDAwMDtzVm1uTE5ZRFZ3Z25sK25RdWRBcER5V28yR2M9O0RlZmF1bHQ7OzFCMDNDNDMxMkVGO1RydWU7OzsxMzMxMDEyOzE3MTIxNmEyLWIwZDctMTAwMC05ZmY2LTRjMDA3MTEwMjdhNiIsImZpZCI6IjIwMTU0MSIsImlzcyI6IjAwMDAwMDAzLTAwMDAtMGZmMS1jZTAwLTAwMDAwMDAwMDAwMEA5MDE0MDEyMi04NTE2LTExZTEtOGVmZi00OTMwNDkyNDAxOWIiLCJhdWQiOiJ3b3BpL215Lm1pY3Jvc29mdHBlcnNvbmFsY29udGVudC5jb21AOTE4ODA0MGQtNmM2Ny00YzViLWIxMTItMzZhMzA0YjY2ZGFkIiwibmJmIjoiMTc3OTQ0MTExNiIsImV4cCI6IjE3Nzk4Njk1MTYifQ%2EYMVn7SU0Vmu4YzifjPVAA4NUF%2DGrVYeivwz6r0qzHkpZVRtSgHm7oKD3wwgnVvmVKgfgrlyzHtalY29%2D4k2VFNsL5VOsmGvslCusscmrT3vpk7djBTS%5F9o717fn7JSyTPfxsKOYAys0OWq81D%2Dq7aTfNsTZClrfx5JWZJ18ROEiOgbLdqgbJE5yKsqedPsqIa6Ey2iq1yTjFdvPpXJI%5F6gz3JfStnv88yfh6gzAlMzJhyyUfanQld2ryDwV%5Fs9%5FafVkZU4cW7iuycpc%2Dtk4RLhDvxHi8jGewCNvV22EVWGf2%2DRcyMxEHvLDWVXvYYU%5FcIUvA9D6nnwLhHhA6H%5FaYIA&amp;access_token_ttl=1779869516714&amp;ObjectDataBlobId=%7Bc8d2bc8d-43ad-0f66-236a-02aac1168a7b%7D%7B1%7D&amp;usid=fae2c5b9-bde5-86f4-df93-c9931e09ecd6&amp;build=16.0.20111.41014&amp;waccluster=PCA1&amp;wdwacuseragent=MSWACONSync" /></p>
+<h2 id="api">API反代</h2>
+<p>分体gcli2api-Render版 
+<img alt="" src="https://onenote.officeapps.live.com/o/GetImage.ashx?&amp;WOPIsrc=https%3A%2F%2Fmy%2Emicrosoftpersonalcontent%2Ecom%2Fpersonal%2Fec9fb4e16b8ab025%2F%5Fvti%5Fbin%2Fwopi%2Eashx%2Ffiles%2FEC9FB4E16B8AB025%213159&amp;access_token=eyJhbGciOiJSUzI1NiIsImtpZCI6IkMxMDU5RTM1MkYyOUY5QUJCNzg4MjRBNkQ4MTQ5RDI2NDFDQzc5QjgiLCJ0eXAiOiJKV1QiLCJ4NXQiOiJ3UVdlTlM4cC1hdTNpQ1NtMkJTZEprSE1lYmcifQ%2EeyJuYW1laWQiOiIwIy5mfG1lbWJlcnNoaXB8cXZtdWZlbmdAb3V0bG9vay5jb20iLCJuaWkiOiJtaWNyb3NvZnQuc2hhcmVwb2ludCIsImlzdXNlciI6InRydWUiLCJjYWNoZWtleSI6IjBoLmZ8bWVtYmVyc2hpcHwwMDAzNDAwMTAyYmZiMjAxQGxpdmUuY29tIiwic2hhcmluZ2lkIjoiMzEzMDkxMzY4Njc0NjI1NTY5OCIsInNpZCI6IldBQ18zMTMwOTEzNjg2NzQ2MjU1Njk4IiwiaXNsb29wYmFjayI6IlRydWUiLCJhcHBjdHgiOiI2YjhhYjAyNWI0ZTEyMDlmODBlYzU3MGMwMDAwMDAwMDtzVm1uTE5ZRFZ3Z25sK25RdWRBcER5V28yR2M9O0RlZmF1bHQ7OzFCMDNDNDMxMkVGO1RydWU7OzsxMzMxMDEyOzE3MTIxNmEyLWIwZDctMTAwMC05ZmY2LTRjMDA3MTEwMjdhNiIsImZpZCI6IjIwMTU0MSIsImlzcyI6IjAwMDAwMDAzLTAwMDAtMGZmMS1jZTAwLTAwMDAwMDAwMDAwMEA5MDE0MDEyMi04NTE2LTExZTEtOGVmZi00OTMwNDkyNDAxOWIiLCJhdWQiOiJ3b3BpL215Lm1pY3Jvc29mdHBlcnNvbmFsY29udGVudC5jb21AOTE4ODA0MGQtNmM2Ny00YzViLWIxMTItMzZhMzA0YjY2ZGFkIiwibmJmIjoiMTc3OTQ0MTExNiIsImV4cCI6IjE3Nzk4Njk1MTYifQ%2EYMVn7SU0Vmu4YzifjPVAA4NUF%2DGrVYeivwz6r0qzHkpZVRtSgHm7oKD3wwgnVvmVKgfgrlyzHtalY29%2D4k2VFNsL5VOsmGvslCusscmrT3vpk7djBTS%5F9o717fn7JSyTPfxsKOYAys0OWq81D%2Dq7aTfNsTZClrfx5JWZJ18ROEiOgbLdqgbJE5yKsqedPsqIa6Ey2iq1yTjFdvPpXJI%5F6gz3JfStnv88yfh6gzAlMzJhyyUfanQld2ryDwV%5Fs9%5FafVkZU4cW7iuycpc%2Dtk4RLhDvxHi8jGewCNvV22EVWGf2%2DRcyMxEHvLDWVXvYYU%5FcIUvA9D6nnwLhHhA6H%5FaYIA&amp;access_token_ttl=1779869516714&amp;ObjectDataBlobId=%7Bd1eba568-5928-0ffe-1c0e-0617e9dc700b%7D%7B1%7D&amp;usid=fae2c5b9-bde5-86f4-df93-c9931e09ecd6&amp;build=16.0.20111.41014&amp;waccluster=PCA1&amp;wdwacuseragent=MSWACONSync" /></p>
+<p>注册neno数据 
+为什么需要数据库？ 
+因为Render本身无法持久化存储数据，当gcli2api项目重启或者更新时，你的凭证将会丢失。 
+但如果配置了数据库，重启或更新gcli2api项目重启时，数据就不会丢失啦。 
+<img alt="" src="https://onenote.officeapps.live.com/o/GetImage.ashx?&amp;WOPIsrc=https%3A%2F%2Fmy%2Emicrosoftpersonalcontent%2Ecom%2Fpersonal%2Fec9fb4e16b8ab025%2F%5Fvti%5Fbin%2Fwopi%2Eashx%2Ffiles%2FEC9FB4E16B8AB025%213159&amp;access_token=eyJhbGciOiJSUzI1NiIsImtpZCI6IkMxMDU5RTM1MkYyOUY5QUJCNzg4MjRBNkQ4MTQ5RDI2NDFDQzc5QjgiLCJ0eXAiOiJKV1QiLCJ4NXQiOiJ3UVdlTlM4cC1hdTNpQ1NtMkJTZEprSE1lYmcifQ%2EeyJuYW1laWQiOiIwIy5mfG1lbWJlcnNoaXB8cXZtdWZlbmdAb3V0bG9vay5jb20iLCJuaWkiOiJtaWNyb3NvZnQuc2hhcmVwb2ludCIsImlzdXNlciI6InRydWUiLCJjYWNoZWtleSI6IjBoLmZ8bWVtYmVyc2hpcHwwMDAzNDAwMTAyYmZiMjAxQGxpdmUuY29tIiwic2hhcmluZ2lkIjoiMzEzMDkxMzY4Njc0NjI1NTY5OCIsInNpZCI6IldBQ18zMTMwOTEzNjg2NzQ2MjU1Njk4IiwiaXNsb29wYmFjayI6IlRydWUiLCJhcHBjdHgiOiI2YjhhYjAyNWI0ZTEyMDlmODBlYzU3MGMwMDAwMDAwMDtzVm1uTE5ZRFZ3Z25sK25RdWRBcER5V28yR2M9O0RlZmF1bHQ7OzFCMDNDNDMxMkVGO1RydWU7OzsxMzMxMDEyOzE3MTIxNmEyLWIwZDctMTAwMC05ZmY2LTRjMDA3MTEwMjdhNiIsImZpZCI6IjIwMTU0MSIsImlzcyI6IjAwMDAwMDAzLTAwMDAtMGZmMS1jZTAwLTAwMDAwMDAwMDAwMEA5MDE0MDEyMi04NTE2LTExZTEtOGVmZi00OTMwNDkyNDAxOWIiLCJhdWQiOiJ3b3BpL215Lm1pY3Jvc29mdHBlcnNvbmFsY29udGVudC5jb21AOTE4ODA0MGQtNmM2Ny00YzViLWIxMTItMzZhMzA0YjY2ZGFkIiwibmJmIjoiMTc3OTQ0MTExNiIsImV4cCI6IjE3Nzk4Njk1MTYifQ%2EYMVn7SU0Vmu4YzifjPVAA4NUF%2DGrVYeivwz6r0qzHkpZVRtSgHm7oKD3wwgnVvmVKgfgrlyzHtalY29%2D4k2VFNsL5VOsmGvslCusscmrT3vpk7djBTS%5F9o717fn7JSyTPfxsKOYAys0OWq81D%2Dq7aTfNsTZClrfx5JWZJ18ROEiOgbLdqgbJE5yKsqedPsqIa6Ey2iq1yTjFdvPpXJI%5F6gz3JfStnv88yfh6gzAlMzJhyyUfanQld2ryDwV%5Fs9%5FafVkZU4cW7iuycpc%2Dtk4RLhDvxHi8jGewCNvV22EVWGf2%2DRcyMxEHvLDWVXvYYU%5FcIUvA9D6nnwLhHhA6H%5FaYIA&amp;access_token_ttl=1779869516714&amp;ObjectDataBlobId=%7B89a055a7-d94d-0eb0-1800-1c8e5b95870b%7D%7B1%7D&amp;usid=fae2c5b9-bde5-86f4-df93-c9931e09ecd6&amp;build=16.0.20111.41014&amp;waccluster=PCA1&amp;wdwacuseragent=MSWACONSync" /></p>
+<p>在render项目里加入数据库 </p>
+<p><img alt="" src="https://onenote.officeapps.live.com/o/GetImage.ashx?&amp;WOPIsrc=https%3A%2F%2Fmy%2Emicrosoftpersonalcontent%2Ecom%2Fpersonal%2Fec9fb4e16b8ab025%2F%5Fvti%5Fbin%2Fwopi%2Eashx%2Ffiles%2FEC9FB4E16B8AB025%213159&amp;access_token=eyJhbGciOiJSUzI1NiIsImtpZCI6IkMxMDU5RTM1MkYyOUY5QUJCNzg4MjRBNkQ4MTQ5RDI2NDFDQzc5QjgiLCJ0eXAiOiJKV1QiLCJ4NXQiOiJ3UVdlTlM4cC1hdTNpQ1NtMkJTZEprSE1lYmcifQ%2EeyJuYW1laWQiOiIwIy5mfG1lbWJlcnNoaXB8cXZtdWZlbmdAb3V0bG9vay5jb20iLCJuaWkiOiJtaWNyb3NvZnQuc2hhcmVwb2ludCIsImlzdXNlciI6InRydWUiLCJjYWNoZWtleSI6IjBoLmZ8bWVtYmVyc2hpcHwwMDAzNDAwMTAyYmZiMjAxQGxpdmUuY29tIiwic2hhcmluZ2lkIjoiMzEzMDkxMzY4Njc0NjI1NTY5OCIsInNpZCI6IldBQ18zMTMwOTEzNjg2NzQ2MjU1Njk4IiwiaXNsb29wYmFjayI6IlRydWUiLCJhcHBjdHgiOiI2YjhhYjAyNWI0ZTEyMDlmODBlYzU3MGMwMDAwMDAwMDtzVm1uTE5ZRFZ3Z25sK25RdWRBcER5V28yR2M9O0RlZmF1bHQ7OzFCMDNDNDMxMkVGO1RydWU7OzsxMzMxMDEyOzE3MTIxNmEyLWIwZDctMTAwMC05ZmY2LTRjMDA3MTEwMjdhNiIsImZpZCI6IjIwMTU0MSIsImlzcyI6IjAwMDAwMDAzLTAwMDAtMGZmMS1jZTAwLTAwMDAwMDAwMDAwMEA5MDE0MDEyMi04NTE2LTExZTEtOGVmZi00OTMwNDkyNDAxOWIiLCJhdWQiOiJ3b3BpL215Lm1pY3Jvc29mdHBlcnNvbmFsY29udGVudC5jb21AOTE4ODA0MGQtNmM2Ny00YzViLWIxMTItMzZhMzA0YjY2ZGFkIiwibmJmIjoiMTc3OTQ0MTExNiIsImV4cCI6IjE3Nzk4Njk1MTYifQ%2EYMVn7SU0Vmu4YzifjPVAA4NUF%2DGrVYeivwz6r0qzHkpZVRtSgHm7oKD3wwgnVvmVKgfgrlyzHtalY29%2D4k2VFNsL5VOsmGvslCusscmrT3vpk7djBTS%5F9o717fn7JSyTPfxsKOYAys0OWq81D%2Dq7aTfNsTZClrfx5JWZJ18ROEiOgbLdqgbJE5yKsqedPsqIa6Ey2iq1yTjFdvPpXJI%5F6gz3JfStnv88yfh6gzAlMzJhyyUfanQld2ryDwV%5Fs9%5FafVkZU4cW7iuycpc%2Dtk4RLhDvxHi8jGewCNvV22EVWGf2%2DRcyMxEHvLDWVXvYYU%5FcIUvA9D6nnwLhHhA6H%5FaYIA&amp;access_token_ttl=1779869516714&amp;ObjectDataBlobId=%7B819da1a9-d3dc-0c52-030a-7b2e07e44d52%7D%7B1%7D&amp;usid=fae2c5b9-bde5-86f4-df93-c9931e09ecd6&amp;build=16.0.20111.41014&amp;waccluster=PCA1&amp;wdwacuseragent=MSWACONSync" /></p>
+<p><img alt="" src="https://onenote.officeapps.live.com/o/GetImage.ashx?&amp;WOPIsrc=https%3A%2F%2Fmy%2Emicrosoftpersonalcontent%2Ecom%2Fpersonal%2Fec9fb4e16b8ab025%2F%5Fvti%5Fbin%2Fwopi%2Eashx%2Ffiles%2FEC9FB4E16B8AB025%213159&amp;access_token=eyJhbGciOiJSUzI1NiIsImtpZCI6IkMxMDU5RTM1MkYyOUY5QUJCNzg4MjRBNkQ4MTQ5RDI2NDFDQzc5QjgiLCJ0eXAiOiJKV1QiLCJ4NXQiOiJ3UVdlTlM4cC1hdTNpQ1NtMkJTZEprSE1lYmcifQ%2EeyJuYW1laWQiOiIwIy5mfG1lbWJlcnNoaXB8cXZtdWZlbmdAb3V0bG9vay5jb20iLCJuaWkiOiJtaWNyb3NvZnQuc2hhcmVwb2ludCIsImlzdXNlciI6InRydWUiLCJjYWNoZWtleSI6IjBoLmZ8bWVtYmVyc2hpcHwwMDAzNDAwMTAyYmZiMjAxQGxpdmUuY29tIiwic2hhcmluZ2lkIjoiMzEzMDkxMzY4Njc0NjI1NTY5OCIsInNpZCI6IldBQ18zMTMwOTEzNjg2NzQ2MjU1Njk4IiwiaXNsb29wYmFjayI6IlRydWUiLCJhcHBjdHgiOiI2YjhhYjAyNWI0ZTEyMDlmODBlYzU3MGMwMDAwMDAwMDtzVm1uTE5ZRFZ3Z25sK25RdWRBcER5V28yR2M9O0RlZmF1bHQ7OzFCMDNDNDMxMkVGO1RydWU7OzsxMzMxMDEyOzE3MTIxNmEyLWIwZDctMTAwMC05ZmY2LTRjMDA3MTEwMjdhNiIsImZpZCI6IjIwMTU0MSIsImlzcyI6IjAwMDAwMDAzLTAwMDAtMGZmMS1jZTAwLTAwMDAwMDAwMDAwMEA5MDE0MDEyMi04NTE2LTExZTEtOGVmZi00OTMwNDkyNDAxOWIiLCJhdWQiOiJ3b3BpL215Lm1pY3Jvc29mdHBlcnNvbmFsY29udGVudC5jb21AOTE4ODA0MGQtNmM2Ny00YzViLWIxMTItMzZhMzA0YjY2ZGFkIiwibmJmIjoiMTc3OTQ0MTExNiIsImV4cCI6IjE3Nzk4Njk1MTYifQ%2EYMVn7SU0Vmu4YzifjPVAA4NUF%2DGrVYeivwz6r0qzHkpZVRtSgHm7oKD3wwgnVvmVKgfgrlyzHtalY29%2D4k2VFNsL5VOsmGvslCusscmrT3vpk7djBTS%5F9o717fn7JSyTPfxsKOYAys0OWq81D%2Dq7aTfNsTZClrfx5JWZJ18ROEiOgbLdqgbJE5yKsqedPsqIa6Ey2iq1yTjFdvPpXJI%5F6gz3JfStnv88yfh6gzAlMzJhyyUfanQld2ryDwV%5Fs9%5FafVkZU4cW7iuycpc%2Dtk4RLhDvxHi8jGewCNvV22EVWGf2%2DRcyMxEHvLDWVXvYYU%5FcIUvA9D6nnwLhHhA6H%5FaYIA&amp;access_token_ttl=1779869516714&amp;ObjectDataBlobId=%7B374d309a-5b09-09b2-104e-49bb7dd6e0d4%7D%7B1%7D&amp;usid=fae2c5b9-bde5-86f4-df93-c9931e09ecd6&amp;build=16.0.20111.41014&amp;waccluster=PCA1&amp;wdwacuseragent=MSWACONSync" /></p>
+<p>获取凭证 
+<img alt="" src="https://onenote.officeapps.live.com/o/GetImage.ashx?&amp;WOPIsrc=https%3A%2F%2Fmy%2Emicrosoftpersonalcontent%2Ecom%2Fpersonal%2Fec9fb4e16b8ab025%2F%5Fvti%5Fbin%2Fwopi%2Eashx%2Ffiles%2FEC9FB4E16B8AB025%213159&amp;access_token=eyJhbGciOiJSUzI1NiIsImtpZCI6IkMxMDU5RTM1MkYyOUY5QUJCNzg4MjRBNkQ4MTQ5RDI2NDFDQzc5QjgiLCJ0eXAiOiJKV1QiLCJ4NXQiOiJ3UVdlTlM4cC1hdTNpQ1NtMkJTZEprSE1lYmcifQ%2EeyJuYW1laWQiOiIwIy5mfG1lbWJlcnNoaXB8cXZtdWZlbmdAb3V0bG9vay5jb20iLCJuaWkiOiJtaWNyb3NvZnQuc2hhcmVwb2ludCIsImlzdXNlciI6InRydWUiLCJjYWNoZWtleSI6IjBoLmZ8bWVtYmVyc2hpcHwwMDAzNDAwMTAyYmZiMjAxQGxpdmUuY29tIiwic2hhcmluZ2lkIjoiMzEzMDkxMzY4Njc0NjI1NTY5OCIsInNpZCI6IldBQ18zMTMwOTEzNjg2NzQ2MjU1Njk4IiwiaXNsb29wYmFjayI6IlRydWUiLCJhcHBjdHgiOiI2YjhhYjAyNWI0ZTEyMDlmODBlYzU3MGMwMDAwMDAwMDtzVm1uTE5ZRFZ3Z25sK25RdWRBcER5V28yR2M9O0RlZmF1bHQ7OzFCMDNDNDMxMkVGO1RydWU7OzsxMzMxMDEyOzE3MTIxNmEyLWIwZDctMTAwMC05ZmY2LTRjMDA3MTEwMjdhNiIsImZpZCI6IjIwMTU0MSIsImlzcyI6IjAwMDAwMDAzLTAwMDAtMGZmMS1jZTAwLTAwMDAwMDAwMDAwMEA5MDE0MDEyMi04NTE2LTExZTEtOGVmZi00OTMwNDkyNDAxOWIiLCJhdWQiOiJ3b3BpL215Lm1pY3Jvc29mdHBlcnNvbmFsY29udGVudC5jb21AOTE4ODA0MGQtNmM2Ny00YzViLWIxMTItMzZhMzA0YjY2ZGFkIiwibmJmIjoiMTc3OTQ0MTExNiIsImV4cCI6IjE3Nzk4Njk1MTYifQ%2EYMVn7SU0Vmu4YzifjPVAA4NUF%2DGrVYeivwz6r0qzHkpZVRtSgHm7oKD3wwgnVvmVKgfgrlyzHtalY29%2D4k2VFNsL5VOsmGvslCusscmrT3vpk7djBTS%5F9o717fn7JSyTPfxsKOYAys0OWq81D%2Dq7aTfNsTZClrfx5JWZJ18ROEiOgbLdqgbJE5yKsqedPsqIa6Ey2iq1yTjFdvPpXJI%5F6gz3JfStnv88yfh6gzAlMzJhyyUfanQld2ryDwV%5Fs9%5FafVkZU4cW7iuycpc%2Dtk4RLhDvxHi8jGewCNvV22EVWGf2%2DRcyMxEHvLDWVXvYYU%5FcIUvA9D6nnwLhHhA6H%5FaYIA&amp;access_token_ttl=1779869516714&amp;ObjectDataBlobId=%7B41fe1c48-0db5-063b-1b88-6431371c3f36%7D%7B1%7D&amp;usid=fae2c5b9-bde5-86f4-df93-c9931e09ecd6&amp;build=16.0.20111.41014&amp;waccluster=PCA1&amp;wdwacuseragent=MSWACONSync" /></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
