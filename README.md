@@ -1,3 +1,3 @@
 # mynotes
-ubuntu
+ubuntu  
 kali
