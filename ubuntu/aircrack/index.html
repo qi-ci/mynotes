@@ -655,19 +655,15 @@
 <li>RTL8812AU</li>
 </ul>
 <h3 id="usb-check-flow">usb check flow</h3>
-<blockquote>
 <p>USB detect
 → driver bind
 → firmware upload
 → device reboot
 → wlan interface create</p>
-</blockquote>
 <pre><code>#diver check
 $lsusb
 </code></pre>
-<blockquote>
 <p>Bus 001 Device 022: ID 0cf3:9271 Qualcomm Atheros Communications AR9271 802.11n</p>
-</blockquote>
 <pre><code>#firemawe check
 $ls -l /lib/firmware/ath9k_htc/
 htc_9271.fw  
@@ -676,7 +672,6 @@ $sudo modprobe -r ath9k_htc
 $sudo modprobe ath9k_htc
 $dmesg | grep ath
 </code></pre>
-<blockquote>
 <p>[23314.110882] usb 1-2: ath9k_htc: Firmware ath9k_htc/htc_9271-1.4.0.fw requested
 [23314.393451] usb 1-2: ath9k_htc: Transferred FW: ath9k_htc/htc_9271-1.4.0.fw, size: 51008
 [23314.641801] ath9k_htc 1-2:1.0: ath9k_htc: HTC initialized with 33 credits
@@ -694,7 +689,6 @@ $dmesg | grep ath
 [23314.910250] ath: Regpair used: 0x52
 [23314.910252] ath: regdomain 0x809c dynamically updated by country element
 [23314.944736] ath9k_htc 1-2:1.0 wlxbc307dfc3994: renamed from wlan0</p>
-</blockquote>
 <h2 id="aircrack-ng">aircrack-ng</h2>
 <pre><code>ip a
 </code></pre>
