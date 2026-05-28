@@ -55,7 +55,7 @@
             "state": {
               "type": "file-explorer",
               "state": {
-                "sortOrder": "byModifiedTimeReverse",
+                "sortOrder": "byCreatedTimeReverse",
                 "autoReveal": false
               },
               "icon": "lucide-folder-closed",
@@ -197,16 +197,16 @@
   },
   "active": "65301ac445de31d4",
   "lastOpenFiles": [
+    "docs/ubuntu/KVM_install_and_windows_config.md",
+    "docs/ubuntu/SillyTavern_vps_bulild.md",
+    "docs/ubuntu/notes_to_github_page.md",
+    "docs/ubuntu/office_password_crack.md",
+    "docs/ubuntu/v2raya.md",
+    "docs/ubuntu/aircrack.md",
     "docs/assets/images/Pasted image 20260527182628.png",
     "docs/assets/images/Pasted image 20260527182606.png",
     "docs/assets/images/Pasted image 20260527182455.png",
     "docs/assets/images/Pasted image 20260527182347.png",
-    "docs/assets/images/Pasted image 20260527182006.png",
-    "docs/ubuntu/notes_to_github_page.md",
-    "docs/ubuntu/aircrack.md",
-    "docs/ubuntu/KVM_install_and_windows_config.md",
-    "docs/ubuntu/office_password_crack.md",
-    "docs/ubuntu/SillyTavern_vps_bulild.md",
-    "docs/ubuntu/v2raya.md"
+    "docs/assets/images/Pasted image 20260527182006.png"
   ]
 }

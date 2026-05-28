@@ -9,7 +9,7 @@ $office$*2013*100000*256*16*818483eeb775a9d991e9de78bd7c5ea6*16368da262bbf465213
 ```
 $ hashcat -hh | grep Office
 ```
-> 9400 | MS Office 2007                                             | Document
+   9400 | MS Office 2007                                             | Document
    9500 | MS Office 2010                                             | Document
    9600 | MS Office 2013                                             | Document
   25300 | MS Office 2016 - SheetProtection                           | Document

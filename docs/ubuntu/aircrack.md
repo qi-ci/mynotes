@@ -3,7 +3,7 @@
 * AR9271
 * RTL8812AU
 ### usb check flow
->USB detect
+USB detect
 → driver bind
 → firmware upload
 → device reboot
@@ -12,7 +12,7 @@
 #diver check
 $lsusb
 ```
->Bus 001 Device 022: ID 0cf3:9271 Qualcomm Atheros Communications AR9271 802.11n
+Bus 001 Device 022: ID 0cf3:9271 Qualcomm Atheros Communications AR9271 802.11n
 ```
 #firemawe check
 $ls -l /lib/firmware/ath9k_htc/
@@ -22,7 +22,7 @@ $sudo modprobe -r ath9k_htc
 $sudo modprobe ath9k_htc
 $dmesg | grep ath
 ```
->[23314.110882] usb 1-2: ath9k_htc: Firmware ath9k_htc/htc_9271-1.4.0.fw requested
+[23314.110882] usb 1-2: ath9k_htc: Firmware ath9k_htc/htc_9271-1.4.0.fw requested
 [23314.393451] usb 1-2: ath9k_htc: Transferred FW: ath9k_htc/htc_9271-1.4.0.fw, size: 51008
 [23314.641801] ath9k_htc 1-2:1.0: ath9k_htc: HTC initialized with 33 credits
 [23314.905555] ath9k_htc 1-2:1.0: ath9k_htc: FW Version: 1.4
