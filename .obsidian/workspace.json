@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "docs/ubuntu/KVM_install_and_windows_config.md",
+                "file": "docs/ubuntu/SillyTavern_vps_bulild.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "KVM_install_and_windows_config"
+              "title": "SillyTavern_vps_bulild"
             }
           }
         ],
@@ -197,12 +197,12 @@
   },
   "active": "65301ac445de31d4",
   "lastOpenFiles": [
-    "docs/ubuntu/SillyTavern_vps_bulild.md",
     "docs/ubuntu/notes_to_github_page.md",
-    "docs/ubuntu/aircrack.md",
-    "docs/ubuntu/v2raya.md",
     "docs/ubuntu/office_password_crack.md",
+    "docs/ubuntu/v2raya.md",
+    "docs/ubuntu/aircrack.md",
     "docs/ubuntu/KVM_install_and_windows_config.md",
+    "docs/ubuntu/SillyTavern_vps_bulild.md",
     "docs/assets/images/Pasted image 20260527182628.png",
     "docs/assets/images/Pasted image 20260527182606.png",
     "docs/assets/images/Pasted image 20260527182455.png",

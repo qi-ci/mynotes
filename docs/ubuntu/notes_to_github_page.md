@@ -73,7 +73,6 @@ plugins:
 (.venv) acorus@ubuntu:/data/info/notes$ mkdocs serve
 
 ```
-
 ## Obsidian图片路径设置
 ![](../assets/images/Pasted%20image%2020260522175412.png)
 ## 部署到github pages
