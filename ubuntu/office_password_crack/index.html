@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#get-office-file-hash" class="md-skip">
+        <a href="#1-get-office-file-hash" class="md-skip">
           Skip to content
         </a>
       
@@ -412,10 +412,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#get-office-file-hash" class="md-nav__link">
+  <a href="#1-get-office-file-hash" class="md-nav__link">
     <span class="md-ellipsis">
       
-        get office file hash
+        1. get office file hash
       
     </span>
   </a>
@@ -423,10 +423,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#hashcat-crack" class="md-nav__link">
+  <a href="#2-hashcat-crack" class="md-nav__link">
     <span class="md-ellipsis">
       
-        hashcat crack
+        2. hashcat crack
       
     </span>
   </a>
@@ -530,10 +530,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#get-office-file-hash" class="md-nav__link">
+  <a href="#1-get-office-file-hash" class="md-nav__link">
     <span class="md-ellipsis">
       
-        get office file hash
+        1. get office file hash
       
     </span>
   </a>
@@ -541,10 +541,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#hashcat-crack" class="md-nav__link">
+  <a href="#2-hashcat-crack" class="md-nav__link">
     <span class="md-ellipsis">
       
-        hashcat crack
+        2. hashcat crack
       
     </span>
   </a>
@@ -570,25 +570,25 @@
 
   <h1>Office password crack</h1>
 
-<h2 id="get-office-file-hash">get office file hash</h2>
+<h2 id="1-get-office-file-hash">1. get office file hash</h2>
 <pre><code>$ python3 /usr/share/john/office2john.py text.xlsx &gt; hash.txt
 $ cat hash.txt
 $office$*2013*100000*256*16*818483eeb775a9d991e9de78bd7c5ea6*16368da262bbf465213e035b78c83d6f*f8e084d431672fe59ecf4cca0d23ac6cae1cf55112e1a0df6266c259b31417c0
 </code></pre>
-<h2 id="hashcat-crack">hashcat crack</h2>
+<h2 id="2-hashcat-crack">2. hashcat crack</h2>
 <p><a href="https://hashcat.net/hashcat/">hashcat install</a></p>
 <pre><code>$ hashcat -hh | grep Office
 </code></pre>
-<p>9400 | MS Office 2007                                             | Document<br>
-   9500 | MS Office 2010                                             | Document<br>
-   9600 | MS Office 2013                                             | Document<br>
-  25300 | MS Office 2016 - SheetProtection                           | Document<br>
-   9700 | MS Office &lt;= 2003 $0/$1, MD5 + RC4                         | Document<br>
-   9710 | MS Office &lt;= 2003 $0/$1, MD5 + RC4, collider #1            | Document<br>
-   9720 | MS Office &lt;= 2003 $0/$1, MD5 + RC4, collider #2            | Document<br>
-   9810 | MS Office &lt;= 2003 $3, SHA1 + RC4, collider #1              | Document<br>
-   9820 | MS Office &lt;= 2003 $3, SHA1 + RC4, collider #2              | Document<br>
-   9800 | MS Office &lt;= 2003 $3/$4, SHA1 + RC4                        | Document<br></p>
+<p>9400 | MS Office 2007                                             | Document<br />
+   9500 | MS Office 2010                                             | Document<br />
+   9600 | MS Office 2013                                             | Document<br />
+  25300 | MS Office 2016 - SheetProtection                           | Document<br />
+   9700 | MS Office &lt;= 2003 $0/$1, MD5 + RC4                         | Document<br />
+   9710 | MS Office &lt;= 2003 $0/$1, MD5 + RC4, collider #1            | Document<br />
+   9720 | MS Office &lt;= 2003 $0/$1, MD5 + RC4, collider #2            | Document<br />
+   9810 | MS Office &lt;= 2003 $3, SHA1 + RC4, collider #1              | Document<br />
+   9820 | MS Office &lt;= 2003 $3, SHA1 + RC4, collider #2              | Document<br />
+   9800 | MS Office &lt;= 2003 $3/$4, SHA1 + RC4                        | Document  </p>
 <pre><code>$ hashcat -m 9600 hash.txt ../tools/rockyou.txt
 </code></pre>
 

